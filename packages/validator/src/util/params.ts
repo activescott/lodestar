@@ -73,6 +73,7 @@ function getSpecCriticalParams(localConfig: ChainConfig): Record<keyof ConfigWit
   const bellatrixForkRelevant = localConfig.BELLATRIX_FORK_EPOCH < Infinity;
   const capellaForkRelevant = localConfig.CAPELLA_FORK_EPOCH < Infinity;
   const denebForkRelevant = localConfig.DENEB_FORK_EPOCH < Infinity;
+  const electraForkRelevant = localConfig.ELECTRA_FORK_EPOCH < Infinity;
 
   return {
     // # Config
@@ -214,5 +215,11 @@ function getSpecCriticalParams(localConfig: ChainConfig): Record<keyof ConfigWit
     MAX_BLOBS_PER_BLOCK: denebForkRelevant,
     MAX_BLOB_COMMITMENTS_PER_BLOCK: denebForkRelevant,
     KZG_COMMITMENT_INCLUSION_PROOF_DEPTH: denebForkRelevant,
+
+    // # ElectraPreset
+    /////////////////
+    FIELD_ELEMENTS_PER_CELL: electraForkRelevant,
+    KZG_COMMITMENTS_INCLUSION_PROOF_DEPTH: electraForkRelevant,
+    NUMBER_OF_COLUMNS: electraForkRelevant,
   };
 }
